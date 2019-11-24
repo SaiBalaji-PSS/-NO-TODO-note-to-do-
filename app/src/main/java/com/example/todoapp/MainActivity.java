@@ -3,10 +3,12 @@ package com.example.todoapp;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -17,6 +19,7 @@ import com.google.firebase.auth.FirebaseAuth;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener, OnCompleteListener<AuthResult> {
     Button btn;
     EditText username,pass;
+    TextView newuser;
     private FirebaseAuth mAuth;
 
     @Override
@@ -27,16 +30,43 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mAuth=FirebaseAuth.getInstance();
         username=(EditText)findViewById(R.id.editText);
         pass=(EditText)findViewById(R.id.editText2);
+        newuser=(TextView)findViewById(R.id.textView3);
         btn.setOnClickListener(this);
+        newuser.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
-        loginuser();
+        switch(v.getId())
+        {
+            case R.id.button:
+            {
+                loginuser();
+                break;
+            }
+
+            case R.id.textView3:
+            {
+                signupnewuser();
+                break;
+            }
+
+
+
+        }
+
 
     }
 
-    void loginuser()
+    private void signupnewuser()
+    {
+        Intent intent = new Intent(this,SignUpactivity.class);
+        startActivity(intent);
+
+
+    }
+
+  private  void loginuser()
     {
         String email = username.getText().toString().trim();
         String password = pass.getText().toString().trim();
