@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -70,7 +71,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     {
         String email = username.getText().toString().trim();
         String password = pass.getText().toString().trim();
-        mAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(this);
+        if(!Patterns.EMAIL_ADDRESS.matcher(email).matches())
+        {
+            username.setError("Enter a valid email address");
+            username.requestFocus();
+            return;
+        }
+        if(password.length()<8)
+        {
+            pass.setError("Enter a password of length 8 or above");
+            return;
+        }
+
+       // mAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(this);
 
     }
 

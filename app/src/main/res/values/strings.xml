@@ -3,4 +3,5 @@
     <string name="WelcomeMessage">WELCOME</string>
     <string name="Buttontxt">Sign In</string>
     <string name="lbltxt">New user?</string>
+    <string name="newuse">Enter the following details to create an account</string>
 </resources>
