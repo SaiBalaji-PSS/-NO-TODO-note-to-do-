@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "506442743795",
+    "firebase_url": "https://productivityapp-2bf5e.firebaseio.com",
+    "project_id": "productivityapp-2bf5e",
+    "storage_bucket": "productivityapp-2bf5e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:506442743795:android:8b5c0c03333bb4931bdc86",
+        "android_client_info": {
+          "package_name": "com.example.todoapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "506442743795-7molm3k1rdlucpmh8ped6hibf1bgfljc.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.todoapp",
+            "certificate_hash": "64ff2c90a5ca3f1617643f654a14359d47c7f481"
+          }
+        },
+        {
+          "client_id": "506442743795-ukhtsqih85c7h4umv41dm9uaui1ls1p6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBPDER2F3Vjy6bskZnPxGICUudEy9boNGg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "506442743795-ukhtsqih85c7h4umv41dm9uaui1ls1p6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
