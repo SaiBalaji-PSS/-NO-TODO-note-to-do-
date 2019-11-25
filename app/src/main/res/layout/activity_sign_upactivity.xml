@@ -55,6 +55,7 @@
         android:layout_marginTop="392dp"
         android:drawableLeft="@drawable/ic_account_box_black_24dp"
         android:text="Create Account"
+        android:onClick="signup"
         app:layout_constraintStart_toStartOf="parent"
 
 

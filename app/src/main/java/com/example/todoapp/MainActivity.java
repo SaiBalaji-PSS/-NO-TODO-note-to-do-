@@ -3,6 +3,7 @@ package com.example.todoapp;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Patterns;
@@ -16,6 +17,8 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthUserCollisionException;
+import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener, OnCompleteListener<AuthResult> {
     Button btn;
@@ -34,6 +37,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         newuser=(TextView)findViewById(R.id.textView3);
         btn.setOnClickListener(this);
         newuser.setOnClickListener(this);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        FirebaseUser currentuser = mAuth.getCurrentUser();
+        if(currentuser!=null)
+        {
+            Intent i = new Intent(this,HomeActivity.class);
+            startActivity(i);
+        }
     }
 
     @Override
@@ -83,7 +98,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             return;
         }
 
-       // mAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(this);
+       mAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(this);
 
     }
 
@@ -91,11 +106,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onComplete(@NonNull Task<AuthResult> task) {
         if(!task.isSuccessful())
         {
-            Toast.makeText(this, "An error has occured", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,  task.getException().toString(), Toast.LENGTH_SHORT).show();
+        }
+        else if(task.getException() instanceof FirebaseAuthUserCollisionException)
+        {
+          username.setError("This email id is already registered");
+          username.requestFocus();
         }
         else
         {
-            Toast.makeText(this, "Success", Toast.LENGTH_SHORT).show();
+
+
+            Intent i2 = new Intent(this,HomeActivity.class);
+            startActivity(i2);
+
         }
     }
 }
