@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".NoteActivity"
+    android:background="#F0DF87">
+
+    <EditText
+        android:id="@+id/editText5"
+        android:layout_width="352dp"
+        android:layout_height="395dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginLeft="28dp"
+        android:layout_marginTop="120dp"
+        android:background="#2F363F"
+        android:ems="10"
+        android:gravity="start|top"
+
+        android:hint="Enter your note here..."
+        android:inputType="textMultiLine"
+        android:textColor="#EAF0F1"
+        android:textColorHint="#EAF0F1"
+        android:textSize="20dp"
+        android:textStyle="italic"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="556dp"
+        android:background="#45CE30"
+        android:onClick="save"
+        android:text="Save my note"
+        android:textColor="@android:color/white"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="264dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="72dp"
+        android:textAllCaps="true"
+
+        android:layout_marginLeft="72dp"
+        android:layout_marginTop="28dp"
+        android:text="Jot down your ideas within 140 words below... "
+        android:textColor="#10A881"
+        android:textSize="20dp"
+        android:textStyle="italic"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

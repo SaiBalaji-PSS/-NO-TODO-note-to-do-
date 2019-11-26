@@ -4,20 +4,45 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
+import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.text.method.ScrollingMovementMethod;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 
 public class HomeActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
+   TextView savednotes;
+
+    sqllitemanager obj;
+
+
+
+    int i=0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        obj=new sqllitemanager(this);
+        savednotes= (TextView)findViewById(R.id.textView7);
+
+        savednotes.setMovementMethod(new ScrollingMovementMethod());
+
+
+
+      /*  AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Info");
         mAuth=FirebaseAuth.getInstance();
 
@@ -25,7 +50,42 @@ public class HomeActivity extends AppCompatActivity {
         builder.setPositiveButton("Ok",null);
 
         AlertDialog dialog = builder.create();
-        dialog.show();
+        dialog.show();*/
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        SQLiteDatabase db = obj.getReadableDatabase();
+        Cursor c= db.rawQuery("select * from "+sqllitemanager.TABLE_NAME,null);
+
+        if(c.getCount()==0)
+        {
+            //
+        }
+
+        StringBuffer buffer = new StringBuffer();
+
+
+        while(c.moveToNext()&&i<=c.getCount())
+        {
+
+
+            buffer.append("NOTE::"+""+(++i)+c.getString(1)+"\n");
+
+
+        }
+
+
+
+
+
+
+        savednotes.setText(savednotes.getText().toString()+buffer+"\n");
+
+
+
     }
 
     @Override
@@ -37,13 +97,35 @@ public class HomeActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
         switch(item.getItemId())
         {
             case R.id.one:
             {
+                Intent s= new Intent(this,Settings.class);
+                startActivity(s);
+                break;
 
+
+            }
+            case R.id.two:
+            {
+                //Intent s2 = new Intent(this)
             }
         }
         return true;
+    }
+
+    public void addnote(View view) {
+          Intent newnote = new Intent(this,NoteActivity.class);
+          startActivity(newnote);
+
+    }
+
+    public void clear(View view) {
+        SQLiteDatabase db = obj.getWritableDatabase();
+        db.execSQL("delete from Notes");
+
+        savednotes.setText("");
     }
 }

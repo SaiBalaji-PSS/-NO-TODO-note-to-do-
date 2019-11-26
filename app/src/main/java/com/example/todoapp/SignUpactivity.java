@@ -47,7 +47,7 @@ public class SignUpactivity extends AppCompatActivity implements OnCompleteListe
             Toast.makeText(this, "Account creation success", Toast.LENGTH_SHORT).show();
             user.setText("");
             pass.setText("");
-            Intent i = new Intent(this,MainActivity.class);
+            Intent i = new Intent(this,HomeActivity.class);
             startActivity(i);
 
 
