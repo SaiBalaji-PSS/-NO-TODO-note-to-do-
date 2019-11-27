@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">ToDoApp</string>
+    <string name="app_name">NOTODO</string>
     <string name="WelcomeMessage">WELCOME</string>
     <string name="Buttontxt">Sign In</string>
     <string name="lbltxt">New user?</string>
