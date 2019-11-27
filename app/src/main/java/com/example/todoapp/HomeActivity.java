@@ -29,7 +29,7 @@ public class HomeActivity extends AppCompatActivity {
 
 
 
-    int i=0;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,23 +56,25 @@ public class HomeActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
+        savednotes.setText("");
 
         SQLiteDatabase db = obj.getReadableDatabase();
         Cursor c= db.rawQuery("select * from "+sqllitemanager.TABLE_NAME,null);
 
         if(c.getCount()==0)
         {
-            //
+            savednotes.setText("");
+            return;
         }
 
         StringBuffer buffer = new StringBuffer();
 
 
-        while(c.moveToNext()&&i<=c.getCount())
+        while(c.moveToNext())
         {
 
 
-            buffer.append("NOTE::"+""+(++i)+c.getString(1)+"\n");
+            buffer.append("NOTE::"+c.getString(1)+"\n");
 
 
         }
@@ -110,7 +112,8 @@ public class HomeActivity extends AppCompatActivity {
             }
             case R.id.two:
             {
-                //Intent s2 = new Intent(this)
+               Intent s2 = new Intent(this,About.class);
+               startActivity(s2);
             }
         }
         return true;

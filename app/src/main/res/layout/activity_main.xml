@@ -11,13 +11,13 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="131dp"
-        android:layout_height="40dp"
+        android:layout_width="188dp"
+        android:layout_height="45dp"
         android:layout_marginStart="140dp"
         android:layout_marginLeft="140dp"
         android:layout_marginTop="40dp"
         android:fontFamily="monospace"
-        android:text="Noto..."
+        android:text="'No'todo"
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
 
         android:textSize="30dp"
