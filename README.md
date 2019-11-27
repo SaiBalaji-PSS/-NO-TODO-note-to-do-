@@ -12,3 +12,5 @@
 
 ![Screenshot_20191127-140216_NOTODO 1](https://user-images.githubusercontent.com/51410810/69707826-7226ea00-1120-11ea-9181-20fd469495a1.jpg)
 ![Screenshot_20191127-140221_NOTODO 1](https://user-images.githubusercontent.com/51410810/69707870-8c60c800-1120-11ea-9d46-93ea2a6b2139.jpg)
+
+![Screenshot_20191127-141950_Samsung_Internet 1](https://user-images.githubusercontent.com/51410810/69708114-0d1fc400-1121-11ea-8daf-2d45d2b14cd5.jpg)
