@@ -1,6 +1,6 @@
 # -NO-TODO-note-to-do-
 
-
+A Note Taking app for android using java,firebase,SQL -lite
 
 ![Screenshot_20191127-140321_NOTODO 2](https://user-images.githubusercontent.com/51410810/69707644-283e0400-1120-11ea-94f0-2f6d094a8de9.jpg)
 
